@@ -12,11 +12,26 @@ const BookList: React.FC = () => {
   return (
     <div>
       <h1>Books</h1>
-      <ul>
-        {books.map(book => (
-          <li key={book.id}>{book.name} by {book.author} - {book.pages} pages</li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Pages</th>
+          </tr>
+        </thead>
+        <tbody>
+          {books.map(book => (
+            <tr key={book.id}>
+              <td>{book.id}</td>
+              <td>{book.name}</td>
+              <td>{book.author}</td>
+              <td>{book.pages}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

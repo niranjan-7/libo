@@ -28,7 +28,6 @@ const NavBar: React.FC = () => {
           <NavLink to="/dashboard/borrowed" className={({ isActive }) => isActive ? 'active' : undefined}>Borrowed Books</NavLink>
         </li>
       </ul>
-      <button onClick={handleLogout} style={{ float: 'right' }}>Sign Out</button>
     </nav>
   );
 };

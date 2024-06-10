@@ -17,25 +17,41 @@ const BorrowForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>User ID:</label>
-        <input type="number" value={userId} onChange={e => setUserId(Number(e.target.value))} />
-      </div>
-      <div>
-        <label>Book ID:</label>
-        <input type="number" value={bookId} onChange={e => setBookId(Number(e.target.value))} />
-      </div>
-      <div>
-        <label>Borrow Date:</label>
-        <input type="date" value={borrowDate} onChange={e => setBorrowDate(e.target.value)} />
-      </div>
-      <div>
-        <label>Return Date:</label>
-        <input type="date" value={returnDate} onChange={e => setReturnDate(e.target.value)} />
-      </div>
-      <button type="submit">Borrow Book</button>
-    </form>
+    <>
+    <style>
+        {`
+          input[type=number]::-webkit-outer-spin-button,
+          input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          input[type=number] {
+            -moz-appearance: textfield;
+          }
+        `}
+      </style>
+      <h1>Borrow a book</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>User ID:</label>
+          <input type="number" value={userId} onChange={e => setUserId(Number(e.target.value))} />
+        </div>
+        <div>
+          <label>Book ID:</label>
+          <input type="number" value={bookId} onChange={e => setBookId(Number(e.target.value))} />
+        </div>
+        <div>
+          <label>Borrow Date:</label>
+          <input type="date" value={borrowDate} onChange={e => setBorrowDate(e.target.value)} />
+        </div>
+        <div>
+          <label>Return Date:</label>
+          <input type="date" value={returnDate} onChange={e => setReturnDate(e.target.value)} />
+        </div>
+        <button type="submit">Borrow Book</button>
+      </form>
+    </>
   );
 };
 

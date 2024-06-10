@@ -28,6 +28,7 @@ export class BookController {
 
   @Delete(':id')
   remove(@Param('id') id: number): Promise<void> {
+    console.log("Book Deleted")
     return this.bookService.remove(id);
   }
 }
