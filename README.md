@@ -4,7 +4,7 @@ This repository contains the backend code for a Library Management System, built
 
 
 ## Installation
-Clone this repor and update the db uri in .env and install the necessary dependencies, run:
+Clone this repo and update the db uri in .env and install the necessary dependencies, run:
 ```ts
 npm install
 ```
