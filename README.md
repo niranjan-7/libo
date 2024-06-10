@@ -8,15 +8,15 @@ Clone this repor and update the db uri in .env and install the necessary depende
 ```ts
 npm install
 ```
-Usage
-Make sure you have the necessary environment setup and the database configured. You can use a .env file to manage your environment variables.
 
 To run the program in development mode, use:
-
+```ts
 npm run dev
+```
+
+## Endpoints
 
 
-#Endpoints
 Book
 GET /books: Retrieve all books.
 GET /books/
