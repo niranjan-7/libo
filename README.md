@@ -17,15 +17,12 @@ npm run dev
 ## Endpoints
 
 
-Book
+# Book
 GET /books: Retrieve all books.
-GET /books/
-: Retrieve a single book by ID.
+GET /books/: Retrieve a single book by ID.
 POST /books: Create a new book.
-PUT /books/
-: Update a book by ID.
-DELETE /books/
-: Delete a book by ID.
+PUT /books/: Update a book by ID.
+DELETE /books/: Delete a book by ID.
 
 
 BookSet
