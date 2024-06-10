@@ -2,19 +2,12 @@
 
 This repository contains the backend code for a Library Management System, built using TypeORM and Nest.js. The system includes the following entities: Book, BookSet(WIP), Borrow, Comment(WIP), and User.
 
-Table of Contents
-Installation
-Usage
-Endpoints
-Running the Program
-Contributing
-License
-Installation
 
-To install the necessary dependencies, run:
-
+## Installation
+Clone this repor and update the db uri in .env and install the necessary dependencies, run:
+```ts
 npm install
-
+```
 Usage
 Make sure you have the necessary environment setup and the database configured. You can use a .env file to manage your environment variables.
 
