@@ -4,15 +4,16 @@ import Dashboard from './components/Dashboard';
 import { AuthProvider } from './context/AuthContext';
 
 const App: React.FC = () => {
+
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/dashboard/*">
-            <Route path="*" element={<Dashboard />} />
-          </Route>
-        </Routes>
-      </Router>
+    <AuthProvider>  
+        <Router>
+          <Routes>
+            <Route path="/dashboard/*">
+              <Route path="*" element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </Router>
     </AuthProvider>
   );
 };

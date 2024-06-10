@@ -27,6 +27,12 @@ const NavBar: React.FC = () => {
         <li>
           <NavLink to="/dashboard/borrowed" className={({ isActive }) => isActive ? 'active' : undefined}>Borrowed Books</NavLink>
         </li>
+        <li>
+          <NavLink to="/dashboard/users" className={({ isActive }) => isActive ? 'active' : undefined}>Users List</NavLink>
+        </li>
+        <li>
+          <NavLink to="/dashboard/add-user" className={({ isActive }) => isActive ? 'active' : undefined}>Add User</NavLink>
+        </li>
       </ul>
     </nav>
   );
