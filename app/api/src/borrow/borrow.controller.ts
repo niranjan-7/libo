@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, Patch } from '@nestjs/common';
 import { BorrowService } from './borrow.service';
 import { Borrow } from './borrow.entity';
 
@@ -24,6 +24,11 @@ export class BorrowController {
   @Put(':id')
   update(@Param('id') id: number, @Body() borrow: Borrow): Promise<Borrow> {
     return this.borrowService.update(id, borrow);
+  }
+
+  @Patch(':id/return')
+  returnBook(@Param('id') id: number, @Body('returnDate') returnDate: Date): Promise<Borrow> {
+    return this.borrowService.returnBook(id, returnDate);
   }
 
   @Delete(':id')

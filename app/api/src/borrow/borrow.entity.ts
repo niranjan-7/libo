@@ -21,4 +21,7 @@ export class Borrow {
 
   @ManyToOne(() => Book, book => book.borrows)
   book: Book;
+
+  @Column({ default: true })
+  isActive: boolean;
 }
