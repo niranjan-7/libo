@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import AddBookForm from './AddBookForm';
 import BookList from './BookList';
@@ -7,11 +7,19 @@ import BorrowForm from './BorrowForm';
 import BorrowedList from './BorrowedList';
 import UserList from './UserList';
 import AddUserForm from './AddUserForm';
+import useAuthHeaders from '../hooks/useAuthHeaders';
 
 const Dashboard: React.FC = () => {
+  const { token, logout } = useAuthHeaders();
+
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
+
   return (
     <div>
       <NavBar />
+      <button onClick={logout}>Logout</button>
       <Routes>
         <Route path="books" element={<BookList />} />
         <Route path="add-book" element={<AddBookForm />} />

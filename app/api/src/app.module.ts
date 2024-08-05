@@ -20,6 +20,8 @@ import { Borrow } from './borrow/borrow.entity';
 import { BorrowService } from './borrow/borrow.service';
 import { BorrowController } from './borrow/borrow.controller';
 import { JwtService } from '@nestjs/jwt';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -33,7 +35,7 @@ import { JwtService } from '@nestjs/jwt';
       entities: [User, Book, BookSet, Comment, Borrow],
       synchronize: true, 
     }),
-    TypeOrmModule.forFeature([User, Book, BookSet, Comment, Borrow]),
+    TypeOrmModule.forFeature([User, Book, BookSet, Comment, Borrow]),UserModule,AuthModule
   ],
   controllers: [ UserController, BookController, BookSetController, CommentController, BorrowController],
   providers: [ UserService, BookService, BookSetService, CommentService, BorrowService, JwtService],
