@@ -7,10 +7,10 @@ import BorrowForm from './BorrowForm';
 import BorrowedList from './BorrowedList';
 import UserList from './UserList';
 import AddUserForm from './AddUserForm';
-import useAuthHeaders from '../hooks/useAuthHeaders';
+import useAuth from '../hooks/useAuth';
 
 const Dashboard: React.FC = () => {
-  const { token, logout } = useAuthHeaders();
+  const { token, logout } = useAuth();
 
   if (!token) {
     return <Navigate to="/login" />;
@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <button onClick={logout}>Logout</button>
+      {/* <button onClick={logout}>Logout</button> */}
       <Routes>
         <Route path="books" element={<BookList />} />
         <Route path="add-book" element={<AddBookForm />} />

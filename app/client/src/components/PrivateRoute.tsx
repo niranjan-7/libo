@@ -1,19 +1,24 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
-import useAuthHeaders from '../hooks/useAuthHeaders';
+import { Route, Navigate, Routes } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+
 
 interface PrivateRouteProps {
   component: React.ComponentType<any>;
+  path: string;
 }
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, ...rest }) => {
-  const { token } = useAuthHeaders();
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, path }) => {
+  const { token } = useAuth();
 
   return (
-    <Route
-      {...rest}
+    <Routes>
+      <Route
+      path={path}
       element={token ? <Component /> : <Navigate to="/login" />}
-    />
+      />
+    </Routes>
+    
   );
 };
 
