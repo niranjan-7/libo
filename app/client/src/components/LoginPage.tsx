@@ -67,8 +67,8 @@ const LoginPage = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <Input type="text" placeholder="Username or email" onChange={(e) => setUsername(e.target.value)}/>
-        <Input type="password" placeholder="Password"  onChange={(e) => setPassword(e.target.value)}/>
+        <Input type="text" placeholder="Username or email" onChange={(e:any) => setUsername(e.target.value)}/>
+        <Input type="password" placeholder="Password"  onChange={(e:any) => setPassword(e.target.value)}/>
         <Button type="submit" >Submit</Button>
       </Form>
     </Container>
