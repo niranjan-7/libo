@@ -14,8 +14,11 @@ export class AuthService {
     async signIn(username,password){
         const user = await this.UserService.findByEmailOrUsername(username);
         if (user?.password !== password) {
-            throw new UnauthorizedException();
-          }
+          throw new UnauthorizedException(
+              `Unauthorized: User password (${user?.password}) does not match provided password (${password}).`
+          );
+      }
+      
           const payload = { sub: user.userId, email: user.email };
           return {
             access_token: await this.jwtService.signAsync(payload),
