@@ -27,17 +27,18 @@ import { UserModule } from './user/user.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'library',
+      url: 'postgresql://libo_user:HGx2yJWG6nsp5dVBzUXwMxKNiMS2LArW@dpg-crbmlqrv2p9s73dipd50-a.singapore-postgres.render.com/libo',
       entities: [User, Book, BookSet, Comment, Borrow],
       synchronize: true, 
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
-    TypeOrmModule.forFeature([User, Book, BookSet, Comment, Borrow]),UserModule,AuthModule
+    TypeOrmModule.forFeature([User, Book, BookSet, Comment, Borrow]),
+    UserModule,
+    AuthModule,
   ],
-  controllers: [ UserController, BookController, BookSetController, CommentController, BorrowController],
-  providers: [ UserService, BookService, BookSetService, CommentService, BorrowService, JwtService],
+  controllers: [UserController, BookController, BookSetController, CommentController, BorrowController],
+  providers: [UserService, BookService, BookSetService, CommentService, BorrowService, JwtService],
 })
 export class AppModule {}
