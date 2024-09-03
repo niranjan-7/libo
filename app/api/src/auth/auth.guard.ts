@@ -35,7 +35,6 @@ export class AuthGuard implements CanActivate {
       });
       console.log('Payload:', payload);
 
-      // Assigning the payload to the request object
       request['user'] = payload;
     } catch (err) {
       console.log('Token verification failed:', err.message);

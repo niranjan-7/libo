@@ -1,4 +1,4 @@
-// src/hooks/useAuthHeaders.ts
+
 import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 

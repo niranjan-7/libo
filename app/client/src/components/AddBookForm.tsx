@@ -11,7 +11,6 @@ const AddBookForm: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    // Validation: Check if all fields are filled
     if (!name || !author || !pages) {
       setError('All fields are required.');
       return;
@@ -20,13 +19,11 @@ const AddBookForm: React.FC = () => {
     const newBook: Omit<Book, 'id'> = { name, author, pages: Number(pages) };
     addBook(newBook).then(response => {
       console.log('Book added:', response.data);
-      // Clear the form and error after successful submission
       setName('');
       setAuthor('');
       setPages('');
       setError('');
     }).catch(error => {
-      // Handle errors here
       console.error('Error adding book:', error);
     });
   };
