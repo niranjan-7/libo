@@ -1,15 +1,15 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './css/NavBar.css'
 
 const NavBar: React.FC = () => {
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleLogout = () => {
-    navigate('/');
-  };
+  // const handleLogout = () => {
+  //   navigate('/');
+  // };
 
   return (
     <nav>

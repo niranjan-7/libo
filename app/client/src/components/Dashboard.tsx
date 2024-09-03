@@ -10,7 +10,7 @@ import AddUserForm from './AddUserForm';
 import useAuth from '../hooks/useAuth';
 
 const Dashboard: React.FC = () => {
-  const { token, logout } = useAuth();
+  const { token } = useAuth();
 
   if (!token) {
     return <Navigate to="/login" />;
