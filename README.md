@@ -1,5 +1,8 @@
 # Library Management System
 
+## Creds
+Email  - user@gmail.com
+Password - User@1234
 
 
 ## Installation
