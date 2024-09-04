@@ -36,18 +36,25 @@ const Input = styled.input`
   font-size: 16px;
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ loading: boolean }>`
   padding: 10px;
-  background-color: #007bff;
+  background-color: ${({ loading }) => (loading ? '#6c757d' : '#007bff')};
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  cursor: pointer;
+  cursor: ${({ loading }) => (loading ? 'not-allowed' : 'pointer')};
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${({ loading }) => (loading ? '#6c757d' : '#0056b3')};
+  }
+
+  &:disabled {
+    opacity: 0.6;
   }
 `;
 
@@ -103,6 +110,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [exiting, setExiting] = useState(false);
+  const [loading, setLoading] = useState(false);
   const context = useContext(AuthContext);
 
   if (!context) {
@@ -125,12 +133,15 @@ const LoginPage = () => {
       return;
     }
 
+    setLoading(true);
     try {
       await login(username, password);
     } catch (error) {
       setError('Login failed: Incorrect username or password.');
       setUsername('');
       setPassword('');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -166,7 +177,9 @@ const LoginPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" loading={loading} disabled={loading}>
+          {loading ? 'Loading...' : 'Submit'}
+        </Button>
       </Form>
 
       {error && (
@@ -178,7 +191,7 @@ const LoginPage = () => {
               setTimeout(() => {
                 setError(null);
                 setExiting(false);
-              }, 500); 
+              }, 500);
             }}
           >
             ×
